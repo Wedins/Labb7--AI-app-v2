@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Labb7__AI_app_v2
 {
-    internal class Hero
+    public enum Hero 
     {
-        public enum UserHero
-        {
-            Warrior,
-            Mage,
-            Rogue,
-
-        }
+        /*
+         Im not familiar with using enums so i wanted to challenge myself with this labb and use enum.
+         */
+        Warrior,
+        Mage,
+        Rogue,
     }
+
 }
