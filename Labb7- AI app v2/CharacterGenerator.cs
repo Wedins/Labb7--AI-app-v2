@@ -6,6 +6,16 @@ namespace Labb7__AI_app_v2
 {
     internal class CharacterGenerator
     {
+        /*
+       * I adapted the suggested approach to fit my project
+         and used my own methods to build the character generator.*/
+
+        /*
+         AI helped me develop the CharacterGenerator class.
+         I used AI assistance to understand how to generate random
+         character attributes, select a random Hero enum value,
+         and assign a special ability based on the character class.
+         */
         Random random = new Random();
         public int GenerateRandomNumber()
         {
@@ -16,9 +26,9 @@ namespace Labb7__AI_app_v2
         public Hero GenerateHero()
         {
             /*
-             I asked ai to help me with this method.
-            I found that the hardest part about this programe was to convert correctily enum to my random class.
-
+          AI helped me understand how to convert a random integer
+          into a Hero enum value.
+          I used this approach to randomly select a character class.
              */
             int randomNumber2 = GenerateRandomNumber();
 
@@ -52,9 +62,13 @@ namespace Labb7__AI_app_v2
 
         public Character CreateCharacter(string characterName)
         {
+            /* AI helped me create this method by showing me how to
+               use my existing methods together to generate a character. 
+             */
+
             Hero hero = GenerateHero();
             string heroAbility = HeroAbility(hero);
-            
+
             int randomStrength = random.Next(1, 101);
             int randomSpeed = random.Next(1, 101);
             int randomHealth = random.Next(1, 101);

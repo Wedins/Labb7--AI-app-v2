@@ -1,7 +1,14 @@
-﻿namespace Labb7__AI_app_v2
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Labb7__AI_app_v2
 {
     internal class Program
     {
+        /*
+         * I adapted the suggested approach to fit my project
+           and used my own methods to build the character generator.*/
         static void Main(string[] args)
         {
             CharacterGenerator character = new CharacterGenerator();
@@ -16,18 +23,38 @@
                     "\n3. Avsluta.");
 
                 int.TryParse(Console.ReadLine(), out int userMenu);
+
                 switch (userMenu)
                 {
                     case 1:
                         Console.WriteLine("Skriv in namn för din hjälte.");
+
+
                         Character newCharacter = character.CreateCharacter(Console.ReadLine());
-                        userCharacters.Add(newCharacter);
+                        string characterName = newCharacter.Name;
+                        if (string.IsNullOrWhiteSpace(characterName) || !characterName.All(c => char.IsLetter(c) || c == ' '))
+                        {
+                            Console.WriteLine("Ogiltigt namn!");
+                        }
+                        /*
+                          * I wanted to make sure that the user could only use letters
+                          * and spaces when naming their character.
+                          * AI helped me implement this input validation.
+                         */
+
+                        else
+                        {
+                            Console.WriteLine($"Du skapade karaktären, {characterName}!");
+                            userCharacters.Add(newCharacter);
+
+                        }
+
 
                         break;
 
                     case 2:
 
-                        if(userCharacters.Count == 0)
+                        if (userCharacters.Count == 0)
                         {
                             Console.WriteLine("Du har inte skapat några karaktärer!");
                         }
@@ -47,12 +74,12 @@
                         break;
 
                     case 3:
-                        Console.WriteLine("Avsluta");
+                        Console.WriteLine("Du valde att avsluta.");
                         menu = false;
                         break;
 
                     default:
-                        Console.WriteLine("Ogiligt!");
+                        Console.WriteLine("Ogiltigt alternativ!");
                         break;
                 }
             }

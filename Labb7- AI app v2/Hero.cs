@@ -4,10 +4,11 @@ using System.Text;
 
 namespace Labb7__AI_app_v2
 {
-    public enum Hero 
+    public enum Hero
     {
         /*
-         Im not familiar with using enums so i wanted to challenge myself with this labb and use enum.
+          I wanted to challenge myself by using an enum
+          because I was not familiar with this concept.
          */
         Warrior,
         Mage,
